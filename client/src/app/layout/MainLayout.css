@@ -1,0 +1,20 @@
+main {
+  display: flex;
+}
+
+.left-navbar {
+  width: 30%;
+  height: 100vh;
+}
+
+.navigation {
+  background-color: #2E2659;
+  width: 20%;
+  height: 100vh;
+  color: white;
+}
+
+.content {
+  width: 80%;
+  height: 100vh;
+}

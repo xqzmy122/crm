@@ -1,0 +1,24 @@
+header {
+  font-size: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.userInfoImage {
+  width: 50px;
+  height: 50px;
+}
+
+.userInfoImage > img {
+  width: 100%;
+  height: 100%;
+  border-radius:50px;
+}
