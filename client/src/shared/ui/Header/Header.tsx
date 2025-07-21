@@ -6,16 +6,16 @@ function Header() {
   const time = new Date();
   let greet: string;
 
-  if (time.getHours() >= 12 || time.getHours() <= 18) {
+  if (time.getHours() >= 12 && time.getHours() <= 18) {
     greet = "Good afternoon, Miron!";
-  } else if (time.getHours() >= 18 || time.getHours() <= 24) {
+  } else if (time.getHours() >= 18 && time.getHours() <= 24) {
     greet = "Good evening, Miron!";
   } else {
     greet = "Good night, Miron!";
   }
 
   return (
-    <header>
+    <header className="header">
       <p>{greet}</p>
       <div className="userInfo">
         <div className="userInfoNotification">

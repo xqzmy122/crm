@@ -10,19 +10,19 @@ function Nav() {
         <span className="logoSubtext">for nailmasters</span>
       </div>
       <div className="linkList">
-        <NavLink to=".">
+        <NavLink to="." className="navLink">
           <FiCalendar />
           <p>Calendar</p>
         </NavLink>
-        <NavLink to="/clients">
+        <NavLink to="/clients" className="navLink">
           <FiBook />
           Clients
         </NavLink>
-        <NavLink to="/analytics">
+        <NavLink to="/analytics" className="navLink">
           <FiBarChart2 />
           Analytics
         </NavLink>
-        <NavLink to="/notifications">
+        <NavLink to="/notifications" className="navLink">
           <FiBell />
           Notifications
         </NavLink>

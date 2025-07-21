@@ -1,3 +1,13 @@
 .calendar {
-  height: 100vh;
+  color: black;
+  height: 100%;
+}
+
+.fc-direction-ltr {
+  height: 85%;
+}
+
+.solidDivider {
+  border-top: 3px solid #bbb;
+  margin-bottom: 20px;
 }
