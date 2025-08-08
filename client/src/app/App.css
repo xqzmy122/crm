@@ -26,6 +26,10 @@ li {
   margin: 10px;
 }
 
+button {
+  all: unset;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
 }

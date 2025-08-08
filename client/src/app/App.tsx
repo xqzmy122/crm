@@ -1,3 +1,5 @@
+import { Provider } from 'react-redux'
+import { store } from './redux/store'
 import Routing from './routes/Routes'
 import './App.css'
 
@@ -5,7 +7,9 @@ import './App.css'
 function App() {
 
   return (
-    <Routing/>
+    <Provider store={store}>
+      <Routing/>
+    </Provider>
   )
 }
 

@@ -4,20 +4,14 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction"
 import "./Calendar.css";
 import Header from "../../shared/ui/Header/Header";
-
-
-const events = [
-  {
-    title: "Meeting",
-    start: new Date(),
-    // duration: "02:00",
-  },
-];
+import { useAppSelector } from "../../app/redux/hooks";
 
 function CalendarPage() {
+  const events = useAppSelector((state) => state.events)
+  
   return (
     <div className="calendar">
-      <Header />
+      <Header/>
       <hr className="solidDivider"/>
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}

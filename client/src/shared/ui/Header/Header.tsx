@@ -1,8 +1,13 @@
-import { FiBell } from "react-icons/fi";
+import { useState } from "react";
 import userProfileImg from "../../../assets/images/5465321609461101185.jpg";
-import "./Header.css";
+import plusIcon from "/images/plus.svg";
+import notificationIcon from "/images/notification.svg";
+import Modal from "../../../widgets/Modal/Modal";
+import styles from "./Header.module.css";
+
 
 function Header() {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const time = new Date();
   let greet: string;
 
@@ -14,18 +19,32 @@ function Header() {
     greet = "Good night, Miron!";
   }
 
+  const handleModal = () => {
+    setIsModalOpen(true);
+  };
+
   return (
-    <header className="header">
+    <header className={styles.header}>
       <p>{greet}</p>
-      <div className="userInfo">
-        <div className="userInfoNotification">
-          <FiBell style={{marginTop: "10px"}}/>
+      <div className={styles.userInfo}>
+        <button className={styles.plusButton} onClick={handleModal}>
+          <img src={plusIcon} alt="" className={styles.plusButtonIcon} />
+        </button>
+
+        <div className={styles.userInfoNotification}>
+          <button>
+            <img
+              src={notificationIcon}
+              alt=""
+              className={styles.notificationButton}
+            />
+          </button>
         </div>
-        <div className="userInfoImage">
+        <div className={styles.userInfoImage}>
           <img src={userProfileImg} alt="user-profile-image" />
         </div>
-
       </div>
+      <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen}/>
     </header>
   );
 }

@@ -1,0 +1,54 @@
+.formBox {
+  width: 400px;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  transform: translateY(-50%);
+  background-color: #2E2659;
+  z-index: 10;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 20px;
+  gap: 20px;
+}
+
+.formBoxBody {
+  width: 100%;
+}
+
+.formBox label {
+  color: white;
+  font-size: 0.7em;
+}
+
+.clientInfo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.clientInfo input {
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  margin-left: 0px;
+}
+
+.sendClientInfo {
+  width: 60%;
+  background-color: var(--primary-color);
+  border-radius: 30px;
+  color: white;
+  text-align: center;
+}
+
+.sendClientInfo:hover {
+  cursor: pointer;
+}

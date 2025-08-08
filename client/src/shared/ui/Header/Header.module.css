@@ -24,3 +24,17 @@
   border-radius:50px;
 }
 
+.plusButton:hover,
+.notificationButton:hover {
+  cursor: pointer
+}
+
+.plusButtonIcon {
+  width: 30px;
+  height: 30px;
+}
+
+.notificationButton {
+  width: 30px;
+  height: 30px;
+}
