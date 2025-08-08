@@ -1,0 +1,9 @@
+.soonAppointments {
+  display: flex;
+  justify-content: center;
+  width: 25%;
+}
+
+.soonAppointments > h2 {
+  font-weight: 200;
+}
