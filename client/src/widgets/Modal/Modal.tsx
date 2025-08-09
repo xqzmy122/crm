@@ -3,11 +3,12 @@ import { useAppDispatch } from "../../app/redux/hooks";
 import DatePicker from "react-datepicker";
 import styles from "./Modal.module.css";
 import "react-datepicker/dist/react-datepicker.css";
-import { addEvent } from "../../shared/ui/redux/eventSlice";
+import { addEvent } from "../../shared/redux/eventSlice";
+import Procedure from "./Procedure/Prodecure";
 
 interface IProps {
-  isOpen: boolean,
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 function Modal({ isOpen, setIsOpen }: IProps) {
@@ -20,7 +21,11 @@ function Modal({ isOpen, setIsOpen }: IProps) {
   function onSubmitHandler(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     e.preventDefault();
     dispatch(addEvent({ title: clientName, start: selectedDate }));
-    setIsOpen(false)
+    setIsOpen(false);
+    setClientInst("");
+    setClientName("");
+    setAppointmentDesc("");
+    setSelectedDate(new Date());
   }
 
   return (
@@ -30,6 +35,7 @@ function Modal({ isOpen, setIsOpen }: IProps) {
           <div className={styles.formBoxBody}>
             <div className={styles.clientInfo}>
               <label htmlFor="">Name:</label>
+
               <input
                 type="text"
                 placeholder="Enter client name"
@@ -39,6 +45,7 @@ function Modal({ isOpen, setIsOpen }: IProps) {
             </div>
             <div className={styles.clientInfo}>
               <label htmlFor="">Inst:</label>
+
               <input
                 type="text"
                 placeholder="Enter client inst"
@@ -46,8 +53,10 @@ function Modal({ isOpen, setIsOpen }: IProps) {
                 onChange={(e) => setClientInst(e.target.value)}
               />
             </div>
+            
             <div className={styles.clientInfo}>
               <label htmlFor="">Notes:</label>
+
               <input
                 type="text"
                 placeholder=""
@@ -63,8 +72,10 @@ function Modal({ isOpen, setIsOpen }: IProps) {
                   setSelectedDate(date!);
                 }}
                 showTimeSelect
+                dateFormat="Pp"
               />
             </div>
+            <Procedure />
           </div>
 
           <button onClick={onSubmitHandler} className={styles.sendClientInfo}>

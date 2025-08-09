@@ -1,0 +1,23 @@
+.content {
+  color: black;
+  height: 100%;
+}
+
+.contentBody {
+  height: 85%;
+  display: flex;
+}
+
+.calendar {
+  width: 75%;
+  height: 100%;
+}
+
+.calendar  > div {
+  height: 100%;
+}
+
+.solidDivider {
+  border-top: 3px solid #bbb;
+  margin-bottom: 20px;
+}

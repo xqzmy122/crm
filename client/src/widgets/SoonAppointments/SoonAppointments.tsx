@@ -1,6 +1,6 @@
-
 import styles from "./SoonAppointments.module.css"
 import { store } from "../../app/redux/store";
+import Appointment from "../../shared/ui/Appointment/Appointment";
 
 
 function SoonAppointments() {
@@ -14,7 +14,7 @@ function SoonAppointments() {
   return <div className={styles.soonAppointments}>
     <h2>Appointments today:</h2>
     {filteredEvents.map((event) => {
-      return <h3>{event.title}</h3>
+      return <Appointment title={event.title} start={event.start}/> // should add id
     })}
   </div>
 }

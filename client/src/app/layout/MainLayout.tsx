@@ -1,13 +1,13 @@
 import { Outlet } from "react-router-dom"
 import Nav from "../navigation/Nav"
-import './MainLayout.css'
+import styles from './MainLayout.module.css'
 
 function MainLayout() {
-  return <main>
-    <nav className='navigation'>
+  return <main className={styles.main}>
+    <nav className={styles.navigation}>
       <Nav/>
     </nav>
-    <div className="content">
+    <div className={styles.layoutContent}>
       <Outlet/>
     </div>
   </main>

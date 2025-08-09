@@ -1,6 +1,6 @@
 .formBox {
   width: 400px;
-  height: 600px;
+  height: 350px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -31,22 +31,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 10px 0;
 }
 
 .clientInfo input {
   border: none;
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
   outline: none;
   margin-left: 0px;
 }
 
 .sendClientInfo {
-  width: 60%;
+  width: 40%;
   background-color: var(--primary-color);
   border-radius: 30px;
   color: white;
   text-align: center;
+  font-size: 0.8em;
 }
 
 .sendClientInfo:hover {

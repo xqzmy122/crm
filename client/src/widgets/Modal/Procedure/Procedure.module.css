@@ -1,0 +1,55 @@
+.procedureInfo {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.procedure {
+  background-color: white;
+  /* костыль */
+  width: 189px; 
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  position: relative;
+}
+
+.procedureTitle {
+  font-size: 0.4em;
+  color: grey;
+  margin-left: 5px;
+}
+
+.arrowButton {
+  display: flex;
+}
+
+.arrowButton:hover {
+  cursor: pointer;
+}
+
+.arrowIcon {
+  width: 10px;
+  height: 8px;
+  transition: 0.3s;
+}
+
+.arrowIcon.active {
+  transform: rotate(180deg);
+
+}
+
+.procedureTypes {
+  position: absolute;
+  font-size: 0.4em;
+  left: 0;
+  top: 40px;
+  background-color: white;
+  width: 100%;
+}
+
+.procedureTypes li:hover {
+  cursor: pointer;
+}

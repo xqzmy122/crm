@@ -33,3 +33,9 @@ button {
 body {
   font-family: 'Montserrat', sans-serif;
 }
+
+
+/* calendar settings */
+.react-datepicker__input-container {
+  display: flex;
+}
