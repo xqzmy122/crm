@@ -2,8 +2,12 @@ import { useState } from "react"
 import styles from "./Procedure.module.css"
 import arrow from "/images/arrow.svg"
 
-function Procedure() {
-  const [procedure, setProcedure] = useState<string>("Procedure")
+interface ProcedureProps {
+  procedure: string,
+  setProcedure: React.Dispatch<React.SetStateAction<string>>
+}
+
+function Procedure({procedure, setProcedure}: ProcedureProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   function onArrowButtobClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {

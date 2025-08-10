@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useAppDispatch } from "../../app/redux/hooks";
+import { nanoid } from "nanoid";
 import DatePicker from "react-datepicker";
 import styles from "./Modal.module.css";
 import "react-datepicker/dist/react-datepicker.css";
 import { addEvent } from "../../shared/redux/eventSlice";
 import Procedure from "./Procedure/Prodecure";
+import closeIcon from "/images/close.svg"
 
 interface IProps {
   isOpen: boolean;
@@ -15,24 +17,42 @@ function Modal({ isOpen, setIsOpen }: IProps) {
   const dispatch = useAppDispatch();
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [clientName, setClientName] = useState<string>("");
-  const [appointmentDesc, setAppointmentDesc] = useState<string>("");
+  const [appointmentNotes, setAppointmentNotes] = useState<string>("");
   const [clientInst, setClientInst] = useState<string>("");
+  const [procedure, setProcedure] = useState<string>("");
 
-  function onSubmitHandler(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+  function onSubmitPreventDefault(e: React.MouseEvent<HTMLFormElement, MouseEvent>) {
     e.preventDefault();
-    dispatch(addEvent({ title: clientName, start: selectedDate }));
+  }
+
+  function onSubmitForm() {
+    dispatch(
+      addEvent({
+        id: nanoid(),
+        title: clientName,
+        start: selectedDate,
+        inst: clientInst,
+        procedure: procedure,
+        notes: appointmentNotes,
+      })
+    );
     setIsOpen(false);
     setClientInst("");
     setClientName("");
-    setAppointmentDesc("");
+    setAppointmentNotes("");
     setSelectedDate(new Date());
+    setProcedure("")
   }
 
   return (
     <>
       {isOpen ? (
-        <form action="" className={styles.formBox}>
+        <form action="" className={styles.formBox} onSubmit={onSubmitPreventDefault}>
+          
           <div className={styles.formBoxBody}>
+            <button className={styles.closeButton} onClick={() => setIsOpen(false)}>
+              <img src={closeIcon} alt="" />
+            </button>
             <div className={styles.clientInfo}>
               <label htmlFor="">Name:</label>
 
@@ -53,15 +73,15 @@ function Modal({ isOpen, setIsOpen }: IProps) {
                 onChange={(e) => setClientInst(e.target.value)}
               />
             </div>
-            
+
             <div className={styles.clientInfo}>
               <label htmlFor="">Notes:</label>
 
               <input
                 type="text"
                 placeholder=""
-                value={appointmentDesc}
-                onChange={(e) => setAppointmentDesc(e.target.value)}
+                value={appointmentNotes}
+                onChange={(e) => setAppointmentNotes(e.target.value)}
               />
             </div>
             <div className={styles.clientInfo}>
@@ -75,10 +95,10 @@ function Modal({ isOpen, setIsOpen }: IProps) {
                 dateFormat="Pp"
               />
             </div>
-            <Procedure />
+            <Procedure procedure={procedure} setProcedure={setProcedure} />
           </div>
 
-          <button onClick={onSubmitHandler} className={styles.sendClientInfo}>
+          <button onClick={onSubmitForm} className={styles.sendClientInfo}>
             Add
           </button>
         </form>

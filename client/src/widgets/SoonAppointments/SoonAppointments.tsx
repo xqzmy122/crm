@@ -13,8 +13,8 @@ function SoonAppointments() {
 
   return <div className={styles.soonAppointments}>
     <h2>Appointments today:</h2>
-    {filteredEvents.map((event) => {
-      return <Appointment title={event.title} start={event.start}/> // should add id
+    {filteredEvents.length === 0 ? <h2>No events today</h2> : filteredEvents.map((event) => {
+      return <Appointment title={event.title} start={event.start} key={event.id}/>
     })}
   </div>
 }

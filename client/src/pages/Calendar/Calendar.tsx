@@ -6,9 +6,24 @@ import styles from "./Calendar.module.css";
 import Header from "../../shared/ui/Header/Header";
 import { useAppSelector } from "../../app/redux/hooks";
 import SoonAppointments from "../../widgets/SoonAppointments/SoonAppointments";
+import { deleteEvent } from "../../shared/redux/eventSlice";
+import type { EventClickArg, EventRemoveArg } from "@fullcalendar/core/index.js";
 
 function CalendarPage() {
   const events = useAppSelector((state) => state.events);
+
+  function handleEventRemove(removeInfo: EventRemoveArg) {
+    console.log(removeInfo);
+    deleteEvent(removeInfo.event.id)
+  }
+  
+  function handleEventClick(clickInfo: EventClickArg) {
+
+    console.log(typeof clickInfo);
+    if (confirm(`Are you sure you want to delete the event ${clickInfo.event.title}`)) {
+      clickInfo.event.remove()
+    }
+  }
 
   return (
     <div className={styles.content}>
@@ -25,6 +40,9 @@ function CalendarPage() {
               end: "timeGridDay, timeGridWeek, dayGridMonth", // will normally be on the right. if RTL, will be on the left
             }}
             events={events}
+            eventRemove={handleEventRemove}
+            // selectable={true}
+            eventClick={handleEventClick}
           />
         </div>
         <SoonAppointments></SoonAppointments>

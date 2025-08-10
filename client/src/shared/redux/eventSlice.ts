@@ -1,6 +1,7 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 export interface eventState {
+  id: string,
   title: string,
   start: Date,
   duration?: string,
@@ -9,22 +10,24 @@ export interface eventState {
   notes?: string,
 }
 
-const initialState: Array<eventState> = [{
-    title: "Gym",
-    start: new Date(),
-    // duration: "02:00",
-  },]
+const initialState: Array<eventState> = []
 
 const eventSlice = createSlice({
   name: "events",
   initialState,
   reducers: {
-    addEvent(state, action: PayloadAction<{title: string, start: Date}>) {
+    addEvent(state, action: PayloadAction<eventState>) {
       return [...state, action.payload]
+    },
+
+    deleteEvent(state, action) {
+      return state.filter((event) => {
+        return (event.id !== action.payload.id)
+      })
     }
   }
 })
 
-export const {addEvent} = eventSlice.actions
+export const {addEvent, deleteEvent} = eventSlice.actions
 export default eventSlice.reducer
 export const selectEvents = (state: any) => state.events.value
