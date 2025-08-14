@@ -45,7 +45,9 @@ function Header() {
         </div>
       </div>
       <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen}/>
+      
     </header>
+    
   );
 }
 

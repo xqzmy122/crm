@@ -26,7 +26,7 @@ function CalendarPage() {
   }
 
   return (
-    <div className={styles.content}>
+    <div className={styles.calendarPageContent}>
       <Header />
       <hr className={styles.solidDivider} />
       <div className={styles.contentBody}>

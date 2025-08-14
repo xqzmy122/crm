@@ -1,0 +1,19 @@
+.solidDivider {
+  border-top: 3px solid #bbb;
+  margin-bottom: 20px;
+}
+
+.filter { 
+  width: 20%;
+  background-color: #F5F5F5;
+  height: 45px;
+  display: flex;
+  border-radius: 10px;
+}
+
+.filter__input {
+  border: none;
+  background-color: inherit;
+  outline: none;
+  margin-left: 10px;
+}
