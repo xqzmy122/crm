@@ -12,11 +12,11 @@ function Header() {
   let greet: string;
 
   if (time.getHours() >= 12 && time.getHours() <= 18) {
-    greet = "Good afternoon, Miron!";
+    greet = "Good afternoon, Alesya!";
   } else if (time.getHours() >= 18 && time.getHours() <= 24) {
-    greet = "Good evening, Miron!";
+    greet = "Good evening, Alesya!";
   } else {
-    greet = "Good night, Miron!";
+    greet = "Good night, Alesya!";
   }
 
   const handleModal = () => {

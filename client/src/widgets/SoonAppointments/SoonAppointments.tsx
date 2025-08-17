@@ -8,13 +8,13 @@ function SoonAppointments() {
     
   const events = store.getState().events
   const filteredEvents = events.filter((event) => {
-    return (event.start.getTime() > currentDate.getTime() && event.start.getDay() === currentDate.getDay())
+    return (event.date.getTime() > currentDate.getTime() && event.date.getDay() === currentDate.getDay())
   })
 
   return <div className={styles.soonAppointments}>
     <h2>Appointments today:</h2>
     {filteredEvents.length === 0 ? <h2>No events today</h2> : filteredEvents.map((event) => {
-      return <Appointment title={event.title} start={event.start} key={event.id}/>
+      return <Appointment date={event.date} title={event.title} key={event.id}/>
     })}
   </div>
 }

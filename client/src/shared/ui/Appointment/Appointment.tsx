@@ -1,9 +1,9 @@
 import styles from "./Appointment.module.css";
 import type { eventState } from "../../redux/eventSlice";
 
-type Appointment = Pick<eventState, "title" | "start">;
+type Appointment = Pick<eventState, "date" | "title">;
 
-function Appointment({ title, start }: Appointment) {
+function Appointment({ date, title }: Appointment) {
   return (
     <div className={styles.appointment}>
       <div className={styles.appointmentInfo}>
@@ -11,7 +11,7 @@ function Appointment({ title, start }: Appointment) {
         <p className={styles.procedure}>Extension</p>
       </div>
       <div className={styles.appointmentTime}>
-        {`${start.getHours()}:${start.getMinutes().toString().padStart(2, "0")}`}
+        {`${date.getHours()}:${date.getMinutes().toString().padStart(2, "0")}`}
       </div>
     </div>
   );
