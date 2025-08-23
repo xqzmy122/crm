@@ -1,0 +1,11 @@
+.clientCard {
+  background-color: var(--primary-color);
+  padding: 10px;
+  width: 25%;
+  color: white;
+  border-radius: 10px;
+}
+
+.clientCard:hover {
+  cursor: pointer;
+}

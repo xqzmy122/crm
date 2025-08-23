@@ -17,6 +17,7 @@ function CalendarPage() {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
+    console.log("rendered");
     dispatch(fetchAppointments("http://localhost:3000/db/appointment"))
     dispatch(fetchClients("http://localhost:3000/db/client"))
   }, [])
